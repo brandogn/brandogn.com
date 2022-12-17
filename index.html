@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Brandogn</title>
     <link rel="stylesheet" href="style.css" />
+    <base target="_blank" />
   </head>
   <body>
     <main>
@@ -21,33 +22,72 @@
         <button data-status="inactive" data-title="prof">CV</button>
       </nav>
 
-      <hr style="padding: 0" />
+      <hr />
 
       <article data-status="inactive" data-title="about">
-        <p>
-          Yome text, and a <a href="#">link</a>. Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Veritatis tempora quis deleniti natus
-          rem qui excepturi adipisci iste repudiandae alias nemo animi error
-          obcaecati consectetur dolore, magnam expedita dicta quo nam tempore
-          voluptatem nulla.
-        </p>
         <div>
-          <img src="/assets/wallpaper_full.jpg" />
-          <div class="caption">Phoooto credit: Hunter Vong</div>
+          <h6>WHO:</h6>
+          <p>
+            Computer Science Student, FL Studio enjoyer, Swimmer (Used to be),
+            Art and Aesthetics Major at Heart, Physics Hobbyist, Color & Math
+            Enthusiast, Average
+            <a href="https://www.thesaurus.com/">Thesaurus.com</a>
+            User, Tom Sachs
+          </p>
+        </div>
+
+        <div>
+          <h6>CONTACT:</h6>
+          <p>
+            Github:
+            <a href="https://github.com/brandogn">brandogn</a>
+            <br />
+            Email: bwong928 [at] berkeley [dot] edu <br />
+          </p>
         </div>
       </article>
 
       <article data-status="inactive" data-title="proj">
-        <h6>asdf</h6>
+        <div class="caption">
+          <em> Note: writeups are still in progress</em>
+        </div>
+
+        <h6>Gitlet</h6>
         <p>
-          Deeznuts Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde
-          aspernatur quod nisi.
+          A mini recreation of the Git version control system (13 Git commands);
+          built from scratch using Java and various Data Structures with an
+          emphasis on readable code and design; created additional bash scripts
+          for testing. Uses serialization for persistence, utilized algorithms
+          to optimize commands for specified big O runtimes.
+        </p>
+
+        <h6>Build Your Own World</h6>
+        <p>
+          A program that generates 2D playable worlds; built in Java using a
+          modified version of a tile rendering engine. Uses data structures to
+          generate pseudo-random worlds and interactions. Uses serialization to
+          persist world states and settings.
+        </p>
+
+        <h6>Blog Roll</h6>
+        <p>
+          A template system for building static websites using pug.js (formerly
+          Jade.js) and node.
         </p>
       </article>
 
       <article data-status="inactive" data-title="art"></article>
 
-      <article data-status="inactive" data-title="prof"></article>
+      <article data-status="inactive" data-title="prof">
+        <p>(<a href="assets/Brandon_Wong_Resume.pdf">Resume PDF</a>)</p>
+        <div id="dark-mode">
+          <img src="/assets/wallpaper_full.jpg" />
+          <div class="caption">Phoooto credit: <a href="#">Hunter Vong</a></div>
+        </div>
+        <div id="light-mode">
+          <img src="/assets/fredcen.png" />
+        </div>
+      </article>
     </main>
     <script src="main.js"></script>
   </body>
