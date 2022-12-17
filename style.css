@@ -110,10 +110,10 @@ hr {
 @media (prefers-color-scheme: dark) {
   :root {
     /* --bg-color: rgb(60, 60, 60);
-    --main-color: rgb(245, 245, 245);
+    --main-color: #e6e7e3;
     --sub-color: rgb(150, 150, 150);
     --url-color: rgb(170, 190, 221); */
-    --bg-color: #3f413e;
+    --bg-color: #3f413f;
     --main-color: #cececa;
     --sub-color: #cececa88;
     --url-color: #728586;

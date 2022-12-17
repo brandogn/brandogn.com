@@ -1,5 +1,5 @@
 const tabs = document.querySelectorAll("nav button");
-let currTitle = tabs[1].dataset.title;
+let currTitle = tabs[0].dataset.title;
 
 function focus(title) {
   const page = document.querySelectorAll(`[data-title="${title}"]`);
