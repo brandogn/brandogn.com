@@ -1,0 +1,105 @@
+:root {
+  --med: 20px;
+  --sml: 16px;
+  --lrg: 42px;
+  /* --bg-color: rgb(60, 60, 60);
+  --main-color: rgb(245, 245, 245);
+  --sub-color: rgb(150, 150, 150);
+  --url-color: rgb(170, 190, 221); */
+  --bg-color: rgb(60, 60, 60);
+  --main-color: #e6e7e3;
+  --sub-color: rgb(150, 150, 150);
+  --url-color: rgb(170, 190, 221);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  /* outline: 1px solid rgba(0, 0, 0, 0.3); */
+  color: var(--main-color);
+  font-size: var(--med);
+  font-family: "Courier New", Courier, monospace;
+}
+
+body {
+  background-color: var(--bg-color);
+}
+
+/* ===== structure ===== */
+
+main {
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+main > *,
+article > * {
+  padding: 1rem 0;
+}
+
+/* ===== nav ===== */
+
+nav {
+  font-style: italic;
+  text-transform: uppercase;
+  cursor: default;
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+}
+
+button[data-status="inactive"]:hover {
+  color: var(--main-color);
+}
+
+button[data-status="inactive"] {
+  color: var(--sub-color);
+  transition: color 0.1s ease-out;
+}
+
+article[data-status="inactive"] {
+  display: none;
+}
+
+/* ===== content ===== */
+
+body {
+  line-height: 1.4;
+}
+
+h1 {
+  font-size: var(--lrg);
+}
+
+p {
+  font-size: var(--med);
+}
+
+.caption,
+.caption * {
+  font-size: var(--sml);
+  text-decoration: unset;
+  color: var(--main-color);
+}
+
+a {
+  color: var(--url-color);
+}
+
+img {
+    max-width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+/* ===== dark mode ===== */
+
+@media (prefers-color-scheme: dark) {
+}
+
+/* ===== mobile ===== */
+
+/* lol */
