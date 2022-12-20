@@ -28,3 +28,10 @@ for (const tab of tabs) {
 }
 
 focus(currTitle);
+
+const gButton = document.querySelector("#g");
+
+gButton.onclick = () => {
+  const darkStyles = document.querySelector("#dark-stylesheet");
+  darkStyles.toggleAttribute("disabled");
+};
