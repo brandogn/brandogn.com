@@ -1,7 +1,0 @@
-<img src="/art/20181101_203725.jpg" />
-<img src="/art/20191115_180454.jpg" />
-<img src="/art/20191115_180522.jpg" />
-<img src="/art/20191218_231732.jpg" />
-<img src="/art/20221219_134201.jpg" />
-<img src="/art/20221219_140330.jpg" />
-<img src="/art/20221219_140431.jpg" />
