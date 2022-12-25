@@ -1,3 +1,4 @@
+// Description: JS tab navigation & dark mode
 const tabs = document.querySelectorAll("nav button");
 let currTitle = tabs[0].dataset.title;
 
@@ -15,7 +16,7 @@ function unFocus(title) {
   });
 }
 
-function clickHandler(elem) {
+function navClickHandler(elem) {
   return () => {
     unFocus(currTitle);
     currTitle = elem.dataset.title;
@@ -24,10 +25,12 @@ function clickHandler(elem) {
 }
 
 for (const tab of tabs) {
-  tab.onclick = clickHandler(tab);
+  tab.onclick = navClickHandler(tab);
 }
 
 focus(currTitle);
+
+// Dark Mode
 
 const gButton = document.querySelector("#g");
 
