@@ -1,5 +1,13 @@
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: url(./fonts/SourceCodePro-Medium.ttf) format('ttf');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
 :root {
-  --med: 20px;
+  --med: 16px;
   --sml: 16px;
   --lrg: 42px;
 
@@ -16,6 +24,7 @@
   color: var(--main-color);
   font-size: var(--med);
   font-family: "Courier New", Courier, monospace;
+  /* font-family: 'Source Sans Pro', sans-serif; */
 }
 
 html {
