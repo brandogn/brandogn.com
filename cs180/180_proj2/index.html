@@ -1,0 +1,702 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Project 2</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 237, 214, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 237, 214, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(249, 228, 188, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="10b37bb1-483c-8028-9aee-ed785177d059" class="page sans"><header><h1 class="page-title">Project 2</h1><p class="page-description"></p></header><div class="page-body"><p id="10b37bb1-483c-8054-8d9c-ca0097a91229" class="">
+</p><h1 id="b6b29a3b-b6a4-408f-86ff-189f6b7586b2" class="">Part 1: Edge detection</h1><h3 id="10b37bb1-483c-802d-a95e-fb971d354c4d" class="">Gradient Magnitude Computation</h3><p id="10b37bb1-483c-802c-bee1-f4580f787bae" class="">Gradient Magnitude Computation is a tool used to detect edges in an image. It works by taking the horizontal and vertical partial derivatives, and calculating the Euclidean norm of these derivatives. The idea is that an edge will occur in parts of the image where values change at a high rate, so thus a derivative/gradient magnitude would be used to measure this. </p><h3 id="10b37bb1-483c-80b4-9282-e75fe3054001" class="">Demo</h3><figure id="10b37bb1-483c-8031-94ad-df3548fb5d34" class="image"><a href="1-original_camera_man.jpg"><img style="width:192px" src="1-original_camera_man.jpg"/></a><figcaption>Original image</figcaption></figure><div id="10b37bb1-483c-80da-9637-d2fa2e4acfdd" class="column-list"><div id="10b37bb1-483c-80d5-b1ab-dd7c2c67fbae" style="width:50%" class="column"><figure id="10b37bb1-483c-802e-a8d6-eabe112b7364" class="image"><a href="2-vert_edges.jpg"><img style="width:330.984375px" src="2-vert_edges.jpg"/></a><figcaption>Partial Derivative for x</figcaption></figure><figure id="10b37bb1-483c-809a-b1ca-ee46dd625f01" class="image"><a href="4-gradient_magnitude.jpg"><img style="width:330.984375px" src="4-gradient_magnitude.jpg"/></a><figcaption>Gradient Magnitude</figcaption></figure></div><div id="10b37bb1-483c-800c-bf91-d08002f9cc78" style="width:50%" class="column"><figure id="10b37bb1-483c-801a-a17c-fe51717399be" class="image"><a href="3-horz_edges.jpg"><img style="width:330.984375px" src="3-horz_edges.jpg"/></a><figcaption>Partial Derivative for y</figcaption></figure><figure id="10b37bb1-483c-8055-a57f-d840e5f3495e" class="image"><a href="5-edge_img.jpg"><img style="width:330.984375px" src="5-edge_img.jpg"/></a><figcaption>Binarized, finalized edge image</figcaption></figure></div></div><p id="10b37bb1-483c-8029-b091-fbe27a208189" class="">
+</p><h3 id="b28ae2a4-5f3e-4d90-a82e-98b58cef8b75" class="">1.2: Derivative of Gaussian (DoG)</h3><p id="10b37bb1-483c-801a-9613-c3f5e21de7ae" class="">While the results above are able to capture edges, there’s still a lot of artifacts. One trick to solve this is to smooth out the original image first with a gaussian kernel before we run it through our Gradient Magnitude edge detection. Here are the results:</p><p id="10b37bb1-483c-80da-872d-d9efcf63d64c" class="">
+</p><div id="10b37bb1-483c-80a0-bbea-e48cdc192031" class="column-list"><div id="10b37bb1-483c-8080-94ef-f0bddae5f784" style="width:50%" class="column"><figure id="bdb7c440-9fad-467c-9d75-2bcf79914f2b" class="image"><a href="6-original_camera_man.jpg"><img style="width:330.984375px" src="6-original_camera_man.jpg"/></a><figcaption>Original</figcaption></figure><figure id="10b37bb1-483c-8078-a775-e3b50cd93c2f" class="image"><a href="8-vert_edges_-_on_blurred.jpg"><img style="width:330.984375px" src="8-vert_edges_-_on_blurred.jpg"/></a><figcaption>Partial Derivative for x of blurred image </figcaption></figure><figure id="10b37bb1-483c-8091-a5ee-d4b7ab8bf90b" class="image"><a href="10-gradient_mag_-_on_blurred.jpg"><img style="width:330.984375px" src="10-gradient_mag_-_on_blurred.jpg"/></a><figcaption>Gradient Magnitude of blurred image</figcaption></figure></div><div id="f8b5cbc6-557f-4c34-a491-2a3ea1830e14" style="width:50%" class="column"><figure id="10b37bb1-483c-8039-a542-d4d0adf29bba" class="image"><a href="7-blurred_img.jpg"><img style="width:330.984375px" src="7-blurred_img.jpg"/></a><figcaption>Blurred</figcaption></figure><figure id="10b37bb1-483c-8025-bd14-c1d8533b5f12" class="image"><a href="9-horz_edges_-_on_blurred.jpg"><img style="width:330.984375px" src="9-horz_edges_-_on_blurred.jpg"/></a><figcaption>Partial Derivative for y of blurred image</figcaption></figure><figure id="10b37bb1-483c-804f-8bc4-c7953d50a4fa" class="image"><a href="11-edge_img_-_on_blurred.jpg"><img style="width:330.984375px" src="11-edge_img_-_on_blurred.jpg"/></a><figcaption>Binarized, finalized edge image of blurred image</figcaption></figure></div></div><div id="10b37bb1-483c-80c3-ab46-d574833556ba" class="column-list"><div id="b3938564-b19d-45a7-a7f2-dbbdf080c27a" style="width:68.75%" class="column"><figure id="10b37bb1-483c-80d4-885b-d689bc12ee42" class="image"><a href="image.png"><img style="width:432px" src="image.png"/></a><figcaption>Instead of doing 3 separate convolutions on the image, we can skip the gaussian filter and instead use a gaussian kernel convolved with the original partial derivative kernels.</figcaption></figure><p id="10b37bb1-483c-8083-a94a-cb869582c829" class="">
+</p></div><div id="10b37bb1-483c-80b0-8c61-d6f5531aa2b4" style="width:31.249999999999993%" class="column"><figure id="10b37bb1-483c-80af-af13-e1c4dd9550fe" class="image"><a href="16-DoG_edge_image.jpg"><img style="width:330.984375px" src="16-DoG_edge_image.jpg"/></a><figcaption>Using a gaussian filter convolved with the original partial derivative kernels results in similar edge images.</figcaption></figure></div></div><p id="10b37bb1-483c-8056-b0fc-f3431eb89124" class="">Main differences when using DoG vs Finite Difference Operator:</p><ul id="c56d478b-7535-47af-b175-3bd38ab0ad06" class="bulleted-list"><li style="list-style-type:disc">The edges are much smoother and uniform; no jagged edges</li></ul><ul id="10b37bb1-483c-8073-ae81-d6a510702af7" class="bulleted-list"><li style="list-style-type:disc">There are much less artifacts, both in the grass and also in the edges themselves</li></ul><p id="10b37bb1-483c-8029-9377-d2ddf4034963" class="">
+</p><h1 id="10b37bb1-483c-8009-a550-d8965cf8a496" class="">Part 2: <strong>Fun with Frequencies!</strong></h1><p id="f5a75b0b-add9-4eb5-8510-2976c455b2af" class="">
+</p><h3 id="c8b93e2e-65b9-4374-9df1-400322ffec6b" class="">Image Sharpening</h3><p id="10b37bb1-483c-80b8-91a2-e0d7f621e37b" class="">Below are some examples of images that were sharpened by simply subtracting a little bit of the low frequencies and normalizing back up (this essentially boosts the higher frequencies of the image).</p><p id="10b37bb1-483c-80b3-b04b-fca061b571e8" class="">
+</p><div id="10b37bb1-483c-80b8-9e6e-d6be0d02f8cf" class="column-list"><div id="10b37bb1-483c-8059-a48c-eb7047e89431" style="width:50%" class="column"><p id="10b37bb1-483c-809c-8b18-e55bcb6bfbe8" class="">Original</p><figure id="10b37bb1-483c-801c-8693-f2fe9b8e1bb9" class="image"><a href="19-taj_original.jpg"><img style="width:336px" src="19-taj_original.jpg"/></a></figure><figure id="e640c2d1-6e72-4243-a4b1-a3ee55f85f94" class="image"><a href="21-car_orig.jpg"><img style="width:4949px" src="21-car_orig.jpg"/></a></figure></div><div id="10b37bb1-483c-8039-9d61-c75b00a0e0a8" style="width:50%" class="column"><p id="10b37bb1-483c-801c-9f67-fdf2664ceed7" class="">Sharpened</p><figure id="10b37bb1-483c-8060-bc83-ff31e2626fde" class="image"><a href="20-taj_sharp.jpg"><img style="width:336px" src="20-taj_sharp.jpg"/></a></figure><figure id="10b37bb1-483c-80c2-8d60-fdd144c0e2af" class="image"><a href="22-car_sharpened.jpg"><img style="width:4949px" src="22-car_sharpened.jpg"/></a></figure></div></div><div id="10b37bb1-483c-80ae-ac41-f32cabc1b70a" class="column-list"><div id="10b37bb1-483c-8092-8cea-e0bf83d8f59d" style="width:50%" class="column"><figure id="10b37bb1-483c-8042-b8d5-c8fe06e33380" class="image"><a href="image%201.png"><img style="width:707.984375px" src="image%201.png"/></a></figure><p id="10b37bb1-483c-8006-a652-f3994ff85f31" class="">
+</p></div><div id="529c2d0f-c28b-4e08-820e-0fae900def13" style="width:50%" class="column"><figure id="10b37bb1-483c-80e7-b8ee-f6d38362d670" class="image"><a href="26d5f489-6bbd-4e71-a2d2-4832e39c0ba8.png"><img style="width:370.0782472613459px" src="26d5f489-6bbd-4e71-a2d2-4832e39c0ba8.png"/></a></figure></div></div><p id="10b37bb1-483c-804f-8c75-dabdf2160ecd" class=""><strong>Changing the amounts of sharpness (for fun)</strong></p><div id="10b37bb1-483c-8064-b14d-c6fbf4c04485" class="column-list"><div id="10b37bb1-483c-802e-a11c-c867814f5c4f" style="width:50%" class="column"><figure id="5de6d107-0480-4ea7-9bc6-95d9a814b3c6" class="image"><a href="23-dog_orig.jpg"><img style="width:330.984375px" src="23-dog_orig.jpg"/></a><figcaption>original</figcaption></figure><figure id="10b37bb1-483c-802b-b6b2-d66a0ea3aaa0" class="image"><a href="25-dog_sharpened_amount1.5.jpg"><img style="width:3171px" src="25-dog_sharpened_amount1.5.jpg"/></a><figcaption>alpha=1.5</figcaption></figure></div><div id="10b37bb1-483c-80d9-ad0c-fe6e9750bb59" style="width:50%" class="column"><figure id="c2beb0ac-2ed9-45ef-83eb-d2ebb0eba904" class="image"><a href="26-dog_sharpened_amount1.0.jpg"><img style="width:3171px" src="26-dog_sharpened_amount1.0.jpg"/></a><figcaption>alpha=1.0</figcaption></figure><figure id="10b37bb1-483c-8012-a587-ebcdb01c280c" class="image"><a href="24-dog_sharpened_amount2.0.jpg"><img style="width:330.984375px" src="24-dog_sharpened_amount2.0.jpg"/></a><figcaption>alpha=2.0</figcaption></figure></div></div><p id="10b37bb1-483c-8078-9ec7-de6cda194450" class="">
+</p><h3 id="10b37bb1-483c-8071-8339-e309b0f207f1" class="">Hybrid images</h3><p id="10b37bb1-483c-80ca-b2b1-f426551cb66f" class="">Another cool thing you can do with frequencies is combine two images; when combining the high frequencies of an image <code>image1</code> with the low frequencies of another image <code>image2</code>, you can get an image that looks like <code>image1</code> up close, and <code>image2</code> from afar. Here’s some examples:</p><p id="10b37bb1-483c-80bd-bca2-fee1e13d62c2" class="">
+</p><div id="10b37bb1-483c-804f-9a05-ff278e7cfeb6" class="column-list"><div id="10b37bb1-483c-80f9-a6c8-d1dd49d7c82f" style="width:75%" class="column"><figure id="10b37bb1-483c-80d0-895a-cae2bd5952d7" class="image"><a href="588d6b45-38db-49e4-8c49-5e44d5f8a655.png"><img style="width:304.6632124352331px" src="588d6b45-38db-49e4-8c49-5e44d5f8a655.png"/></a></figure></div><div id="38dcbadf-f2bc-48ee-a246-9adcc34531a1" style="width:25%" class="column"><figure id="10b37bb1-483c-803b-9511-c7886bcffb3a" class="image"><a href="4806da41-cb28-4f3a-8443-014553c6a137.png"><img style="width:60px" src="4806da41-cb28-4f3a-8443-014553c6a137.png"/></a></figure><p id="10b37bb1-483c-805b-8af5-c961f34dd874" class="">From a far, the image looks like Derick, but up close the image looks like nutmeg.</p><p id="059e4004-094d-489e-bb8f-5de3842bdee1" class="">
+</p></div></div><div id="10b37bb1-483c-8079-bd86-c8bf50f7a5af" class="column-list"><div id="10b37bb1-483c-80ab-b9f5-d04d8c525956" style="width:68.75%" class="column"><figure id="10b37bb1-483c-805b-aa7d-eb4d5be9b409" class="image"><a href="8764e747-2042-4173-a5a3-fdc18ab948a8.png"><img style="width:445.5384615384615px" src="8764e747-2042-4173-a5a3-fdc18ab948a8.png"/></a><figcaption>A colored image, which sorta works, but kinda fails because the bread is too long.</figcaption></figure></div><div id="10b37bb1-483c-801e-97ce-ef1cc99ec075" style="width:31.249999999999993%" class="column"><figure id="10b37bb1-483c-80d5-bc15-d8c2a2c5157c" class="image"><a href="bred.jpg"><img style="width:330.984375px" src="bred.jpg"/></a><figcaption>bred.jpg</figcaption></figure><figure id="10b37bb1-483c-8084-a6c6-eb8bafe381a6" class="image"><a href="cat.jpg"><img style="width:330.984375px" src="cat.jpg"/></a><figcaption>cat.jpg</figcaption></figure></div></div><div id="10b37bb1-483c-80cb-b779-d2377c941ff8" class="column-list"><div id="10b37bb1-483c-80d5-9a99-f6bdbf3f99d7" style="width:68.75%" class="column"><figure id="10b37bb1-483c-8049-ac20-e0839341b192" class="image"><a href="32-cat_thunder_hybrid.jpg"><img style="width:240px" src="32-cat_thunder_hybrid.jpg"/></a><figcaption>Thunder cat, and a picture of a cat.</figcaption></figure></div><div id="abac94e0-7029-4f76-bd08-1a627dd8816b" style="width:31.250000000000007%" class="column"><figure id="10b37bb1-483c-804a-a375-f322fc980dce" class="image"><a href="thundercat.jpg"><img style="width:206.859375px" src="thundercat.jpg"/></a><figcaption>thundercat.jpg</figcaption></figure><figure id="10b37bb1-483c-80ae-813e-f1caf348a96c" class="image"><a href="cathunder.jpg"><img style="width:201px" src="cathunder.jpg"/></a><figcaption>catthunder.jpg</figcaption></figure><p id="1f12229a-7723-4c80-b61c-b65fa4ef7f55" class="">
+</p></div></div><p id="10b37bb1-483c-8023-91e1-e5d5f46b7664" class="">
+</p><h3 id="10b37bb1-483c-809c-9b97-dffe2b7a3bfb" class="">Multiresolution Blending</h3><p id="cbc250e3-8426-4572-91c1-be2c8269317e" class="">One really cool trick that can be done is blending two photos together. Essentially, you can take a <code>mask</code>, <code>img1</code>, <code>img2</code>, and take the laplacian stack of all the two images, and the gaussian stack of the mask. Then, you can combine the images on each of the layers of the stacks, and collapse the resulting stack into a single image. </p><p id="36731837-3efb-4642-be2c-1339b5de7eee" class="">
+</p><div id="10b37bb1-483c-80f4-ac00-c1b077a25d5c" class="column-list"><div id="43990221-f0dc-4e3a-8a67-19fe4df1df07" style="width:62.5%" class="column"><figure id="cd3f70bb-de5c-4dfa-861a-30474c857767" class="image"><a href="34-oraple.jpg"><img style="width:384px" src="34-oraple.jpg"/></a><figcaption>orange + apple</figcaption></figure></div><div id="10b37bb1-483c-8019-82f4-d9b11e4c2897" style="width:37.5%" class="column"><figure id="10b37bb1-483c-8033-a3c1-c05e94f8c326" class="image"><a href="36-catbred.jpg"><img style="width:330.984375px" src="36-catbred.jpg"/></a><figcaption>cat + bread</figcaption></figure><figure id="10b37bb1-483c-80f7-a699-e82b1918cc20" class="image"><a href="54-celeberties_blended_sigma10.jpg"><img style="width:432px" src="54-celeberties_blended_sigma10.jpg"/></a><figcaption>celebrity mashing</figcaption></figure></div></div><p id="10b37bb1-483c-807e-be30-ecf3cf64b799" class="">
+</p><p id="10b37bb1-483c-8077-ad84-d3c661c5c808" class="">
+</p><p id="10b37bb1-483c-8086-aedb-e8cd717eda7f" class="">
+</p><p id="10b37bb1-483c-8043-9482-c1730ad91e17" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
