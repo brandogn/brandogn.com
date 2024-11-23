@@ -1,0 +1,786 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Project 5</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="13437bb1-483c-802a-85e4-c1319eb20eb4" class="page sans"><header><h1 class="page-title">Project 5</h1><p class="page-description"></p></header><div class="page-body"><p id="13437bb1-483c-8094-ba45-cd11dc178f5f" class="">
+</p><h1 id="13437bb1-483c-809d-8424-fb07d9bc3a17" class="">Part A</h1><p id="13c37bb1-483c-8010-9547-ccd3ec59d5c8" class="">
+</p><h2 id="13c37bb1-483c-807a-a0f1-c31d32a39fe5" class="">Part 0</h2><p id="13c37bb1-483c-8025-b2ba-ca0234848549" class="">In this first part, we played around with DeepFloyd and generated some images with the already-trained model. Below we can see that less inference steps in the first stage result in more random images (less coherent subject matter), while less inference steps for the second stage seems to result in more noisy upscaling (the subject matter is still preserved, but everything seems much more grainy). As for the overall trend, more inference steps seems to improve the quality of images slightly, especially in the “man wearing a hat” prompt which appears much more realistic and defined.</p><p id="13c37bb1-483c-8081-b7ef-def5ed0b3aff" class="">
+</p><p id="13c37bb1-483c-803c-9b05-e73957b7c66f" class="">Below are generated images as well as their corresponding prompts above each image. The smaller images are from stage 1, and the larger images are the upscaled versions from stage 2. I used varrying <code>num_inference_steps</code> for the stages, but for all, I used the seed: <code>YOUR_SEED = 180</code> </p><div id="13c37bb1-483c-8071-a872-ee5415b874a7" class="column-list"><div id="13c37bb1-483c-806d-8416-fbbdd403db2b" style="width:50%" class="column"><figure id="13c37bb1-483c-80cd-915f-f5d4e460fa03" class="image"><a href="image.png"><img style="width:707.984375px" src="image.png"/></a><figcaption><code>num_inference_steps = 20</code> for both stages</figcaption></figure><figure id="13c37bb1-483c-8027-ba3d-d6e1f7cc123b" class="image"><a href="image%201.png"><img style="width:707.984375px" src="image%201.png"/></a><figcaption><code>num_inference_steps = 30</code> for generation, <code>num_inference_steps = 5</code> for upscaling</figcaption></figure></div><div id="13c37bb1-483c-80dd-82e6-e9e5d817dc55" style="width:50%" class="column"><figure id="13c37bb1-483c-8019-a2d1-c5d9439271b1" class="image"><a href="image%202.png"><img style="width:707.96875px" src="image%202.png"/></a><figcaption><code>num_inference_steps = 75</code> for both stages</figcaption></figure><figure id="13c37bb1-483c-80cf-b633-da71932e85c3" class="image"><a href="image%203.png"><img style="width:707.984375px" src="image%203.png"/></a><figcaption><code>num_inference_steps = 1</code> for generation, <code>num_inference_steps = 30</code> for upscaling</figcaption></figure></div></div><p id="13c37bb1-483c-8040-96de-f10ff8f5ca5a" class="">
+</p><h2 id="13c37bb1-483c-8062-8df7-f34f248cbc6d" class="">Part 1: Sampling Loops</h2><p id="13c37bb1-483c-80aa-b3a9-c81553ea71b9" class="">In this part, I wrote some sampling loops using the pretrained DeepFloyd denoisers. This essentially means strating with a clean image <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">x_0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span> , iteratively adding noise in steps, and using the denoisers to predict how much noise to remove at each iteration step, and iteratively denoising the image back to a clean image.</p><p id="14737bb1-483c-8090-af26-deb012c7f774" class="">
+</p><h3 id="13c37bb1-483c-8072-9801-f1f29ace3c63" class=""><strong>1.1 Implementing the Forward Process</strong></h3><p id="13c37bb1-483c-800c-a3a6-f2a7a7290cb1" class="">In this section I implement a <code>forward(im, t)</code> function which computes a noisy image <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mi>t</mi></msub></mrow><annotation encoding="application/x-tex">x_t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span> given <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span></span></span></span></span><span>﻿</span></span> and <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">x_0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span> defined as:</p><figure id="14737bb1-483c-80fa-9706-ee7f4b3b02ad" class="equation"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable width="100%"><mtr><mtd width="50%"></mtd><mtd><mrow><mi>q</mi><mo stretchy="false">(</mo><msub><mi>x</mi><mi>t</mi></msub><mi mathvariant="normal">∣</mi><msub><mi>x</mi><mn>0</mn></msub><mo stretchy="false">)</mo><mo>=</mo><mi>N</mi><mo stretchy="false">(</mo><msub><mi>x</mi><mi>t</mi></msub><mo separator="true">;</mo><msqrt><mover accent="true"><mi>α</mi><mo>ˉ</mo></mover></msqrt><msub><mi>x</mi><mn>0</mn></msub><mo separator="true">,</mo><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><msub><mover accent="true"><mi>α</mi><mo>ˉ</mo></mover><mi>t</mi></msub><mo stretchy="false">)</mo><mi mathvariant="bold">I</mi><mo stretchy="false">)</mo></mrow></mtd><mtd width="50%"></mtd><mtd><mtext>(A.1)</mtext></mtd></mtr></mtable><annotation encoding="application/x-tex">q(x_t | x_0) = N(x_t ; \sqrt{\bar\alpha} x_0, (1 -
+\bar\alpha_t)\mathbf{I})\tag{A.1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord">∣</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.1678em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">;</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9178em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;"><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.5678em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.2222em;"><span class="mord">ˉ</span></span></span></span></span></span></span></span></span><span style="top:-2.8778em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg xmlns="http://www.w3.org/2000/svg" width='400em' height='1.08em' viewBox='0 0 400000 1080' preserveAspectRatio='xMinYMin slice'><path d='M95,702
+c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
+c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
+c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
+s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
+c69,-144,104.5,-217.7,106.5,-221
+l0 -0
+c5.3,-9.3,12,-14,20,-14
+H400000v40H845.2724
+s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
+c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
+M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1222em;"><span></span></span></span></span></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.5678em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.2222em;"><span class="mord">ˉ</span></span></span></span></span></span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:-0.0037em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mord mathbf">I</span><span class="mclose">)</span></span><span class="tag"><span class="strut" style="height:1.1678em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">(</span><span class="mord"><span class="mord">A.1</span></span><span class="mord">)</span></span></span></span></span></span></div></figure><p id="14737bb1-483c-800d-90db-e8c387d1aac2" class="">which is equivalent to:</p><figure id="14737bb1-483c-8089-addd-f4e0190a8a85" class="equation"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable width="100%"><mtr><mtd width="50%"></mtd><mtd><mrow><msub><mi>x</mi><mi>t</mi></msub><mo>=</mo><msqrt><msub><mover accent="true"><mi>α</mi><mo>ˉ</mo></mover><mi>t</mi></msub></msqrt><msub><mi>x</mi><mn>0</mn></msub><mo>+</mo><msqrt><mrow><mn>1</mn><mo>−</mo><msub><mover accent="true"><mi>α</mi><mo>ˉ</mo></mover><mi>t</mi></msub></mrow></msqrt><mi>ϵ</mi><mspace width="1em"/><mtext>where </mtext><mi>ϵ</mi><mo>∼</mo><mi>N</mi><mo stretchy="false">(</mo><mn>0</mn><mo separator="true">,</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></mtd><mtd width="50%"></mtd><mtd><mtext>(A.2)</mtext></mtd></mtr></mtable><annotation encoding="application/x-tex">x_t = \sqrt{\bar\alpha_t} x_0 + \sqrt{1 - \bar\alpha_t} \epsilon
+          \quad \text{where}~ \epsilon \sim N(0, 1) \tag{A.2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.04em;vertical-align:-0.1972em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8428em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;"><span class="mord"><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.5678em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.2222em;"><span class="mord">ˉ</span></span></span></span></span></span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:-0.0037em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-2.8028em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg xmlns="http://www.w3.org/2000/svg" width='400em' height='1.08em' viewBox='0 0 400000 1080' preserveAspectRatio='xMinYMin slice'><path d='M95,702
+c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
+c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
+c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
+s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
+c69,-144,104.5,-217.7,106.5,-221
+l0 -0
+c5.3,-9.3,12,-14,20,-14
+H400000v40H845.2724
+s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
+c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
+M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1972em;"><span></span></span></span></span></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.04em;vertical-align:-0.1589em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8811em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;"><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord"><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.5678em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.2222em;"><span class="mord">ˉ</span></span></span></span></span></span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:-0.0037em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-2.8411em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg xmlns="http://www.w3.org/2000/svg" width='400em' height='1.08em' viewBox='0 0 400000 1080' preserveAspectRatio='xMinYMin slice'><path d='M95,702
+c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
+c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
+c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
+s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
+c69,-144,104.5,-217.7,106.5,-221
+l0 -0
+c5.3,-9.3,12,-14,20,-14
+H400000v40H845.2724
+s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
+c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
+M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1589em;"><span></span></span></span></span></span><span class="mord mathnormal">ϵ</span><span class="mspace" style="margin-right:1em;"></span><span class="mord text"><span class="mord">where</span></span><span class="mspace nobreak"> </span><span class="mord mathnormal">ϵ</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∼</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mopen">(</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">1</span><span class="mclose">)</span></span><span class="tag"><span class="strut" style="height:1.1311em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">(</span><span class="mord"><span class="mord">A.2</span></span><span class="mord">)</span></span></span></span></span></span></div></figure><p id="14737bb1-483c-8096-a0a3-d0027694db79" class="">
+</p><p id="13c37bb1-483c-806c-bf91-f3d9c2654c0a" class="">Below is the test image at noise level [0, 250, 500, 750].</p><div id="13c37bb1-483c-80c7-abbf-f9da80706e56" class="column-list"><div id="13c37bb1-483c-8044-b3ac-da10012a3501" style="width:25%" class="column"><figure id="13c37bb1-483c-805f-9321-e390e95960ac" class="image"><a href="download.png"><img style="width:192px" src="download.png"/></a><figcaption>t=0</figcaption></figure></div><div id="13c37bb1-483c-8054-83ae-f58e5e988678" style="width:25%" class="column"><figure id="13c37bb1-483c-803c-8acf-cfecf7f5b637" class="image"><a href="download%201.png"><img style="width:240px" src="download%201.png"/></a><figcaption>t=250</figcaption></figure></div><div id="13c37bb1-483c-80f6-9cbe-e7b465644838" style="width:25%" class="column"><figure id="13c37bb1-483c-803f-891a-d91683ede144" class="image"><a href="download%202.png"><img style="width:288px" src="download%202.png"/></a><figcaption>t=500</figcaption></figure></div><div id="13c37bb1-483c-80c9-8ca0-f92952d2dac9" style="width:25%" class="column"><figure id="13c37bb1-483c-8059-a990-f7bbccfd2b1e" class="image"><a href="download%203.png"><img style="width:336px" src="download%203.png"/></a><figcaption>t=750</figcaption></figure></div></div><p id="13c37bb1-483c-807f-9068-f778aa4d51da" class="">
+</p><h3 id="13c37bb1-483c-800e-a221-f2527cfe3284" class="">1.2 Classical Denoising </h3><p id="14737bb1-483c-802d-836f-e61ba26b0e08" class="">Classical methods of denoising typically involved applying a guassian blur filter on the noisy image. Below we can see this method applied to the noisy images from 1.1, however the results aren’t optimal.</p><div id="13c37bb1-483c-80d6-9867-e0ecda7c2dfd" class="column-list"><div id="13c37bb1-483c-8028-9ea9-d2fccf42a27a" style="width:33.333333333333336%" class="column"><figure id="6b8414f8-9353-460b-9c36-84c214a45f62" class="image"><a href="download%201.png"><img style="width:240px" src="download%201.png"/></a><figcaption>t=250</figcaption></figure><figure id="13c37bb1-483c-80f5-a426-e59f704d8234" class="image"><a href="download%204.png"><img style="width:432px" src="download%204.png"/></a></figure></div><div id="13c37bb1-483c-80e2-acd1-ce5db16ce6d6" style="width:33.333333333333336%" class="column"><figure id="fef4d397-1db8-4a54-84a1-b9dd59e2595b" class="image"><a href="download%202.png"><img style="width:288px" src="download%202.png"/></a><figcaption>t=500</figcaption></figure><figure id="13c37bb1-483c-805b-8e34-f89d1d1014a4" class="image"><a href="download%205.png"><img style="width:528px" src="download%205.png"/></a></figure></div><div id="13c37bb1-483c-80d4-961d-fadf754019fd" style="width:33.33333333333333%" class="column"><figure id="5937b414-72a9-4433-b1e7-e5b0bc5fe97b" class="image"><a href="download%203.png"><img style="width:336px" src="download%203.png"/></a><figcaption>t=750</figcaption></figure><figure id="13c37bb1-483c-8079-bfe2-f35279702d13" class="image"><a href="download%206.png"><img style="width:528px" src="download%206.png"/></a></figure></div></div><p id="13c37bb1-483c-80c1-a33a-edfdb0862b5b" class="">
+</p><h3 id="13c37bb1-483c-80f7-a737-e68e45c8be8a" class="">1.3 One-Step Denoising</h3><p id="13c37bb1-483c-8096-ac18-fa206b11f0d5" class="">Using a pretrained diffusion model’s denoisers, we can predict the amount of noise that needs to be removed given the <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span></span></span></span></span><span>﻿</span></span> as well as prompt embeddings, which we use <code>&quot;a high quality photo&quot;</code>. Below are the results from passing in the images at <code>t = [250, 500, 750]</code> into <code>stage_1.unet</code> and subtracting the predicted noise from the image. As we can see, the denoising U-net does a decent job of removing all noise from the image, however later <code>t</code> values result in a tower that much less resembles the original Campanille.</p><div id="13c37bb1-483c-802e-a668-fe6c16de3999" class="column-list"><div id="13c37bb1-483c-802b-a894-ffd840257965" style="width:25%" class="column"><figure id="c7a2719e-b493-4386-ba0a-b0c1825f1652" class="image"><a href="download%201.png"><img style="width:240px" src="download%201.png"/></a><figcaption>t=250</figcaption></figure><figure id="13c37bb1-483c-8079-a220-c49daa8a122a" class="image"><a href="download%207.png"><img style="width:240px" src="download%207.png"/></a><figcaption>t=250</figcaption></figure></div><div id="13c37bb1-483c-806c-bee4-fc42ce631393" style="width:25%" class="column"><figure id="81443d50-adc5-43c9-be0d-a1ab9220646f" class="image"><a href="download%202.png"><img style="width:288px" src="download%202.png"/></a><figcaption>t=500</figcaption></figure><figure id="13c37bb1-483c-800a-ab14-c7e5232b1fbd" class="image"><a href="download%208.png"><img style="width:384px" src="download%208.png"/></a><figcaption>t=500</figcaption></figure></div><div id="13c37bb1-483c-80e1-b489-f1ce2b4e2331" style="width:25%" class="column"><figure id="d9687ebb-1f48-49b8-aed5-f04326f77e63" class="image"><a href="download%203.png"><img style="width:336px" src="download%203.png"/></a><figcaption>t=750</figcaption></figure><figure id="13c37bb1-483c-80ca-a78c-e037a764ca2a" class="image"><a href="download%209.png"><img style="width:288px" src="download%209.png"/></a><figcaption>t=750</figcaption></figure></div><div id="14737bb1-483c-8069-ab5f-cc64d5e5d617" style="width:25%" class="column"><figure id="14737bb1-483c-8014-8a53-c1217594e762" class="image"><a href="download.png"><img style="width:192px" src="download.png"/></a><figcaption>original</figcaption></figure><p id="14737bb1-483c-801c-afef-c6d3d649d0fa" class="">
+</p></div></div><p id="13c37bb1-483c-80ad-96be-fac2b11fff34" class="">
+</p><h3 id="13c37bb1-483c-80c4-81f6-db635caac21a" class="">1.4 Iterative Denoising</h3><p id="13c37bb1-483c-8074-b548-fea265441a98" class="">Using <code>i_start = 10:</code></p><ul id="13c37bb1-483c-807d-8add-e7c2fd409fdc" class="bulleted-list"><li style="list-style-type:disc">Create <code>strided_timesteps</code>: a list of monotonically decreasing timesteps, starting at 990, with a stride of 30, eventually reaching 0. Also initialize the timesteps using the function <code>stage_1.scheduler.set_timesteps(timesteps=strided_timesteps)</code></li></ul><ul id="13c37bb1-483c-80df-a961-c2fd50f5eb10" class="bulleted-list"><li style="list-style-type:disc">Show the noisy image every 5th loop of denoising (it should gradually become less noisy)</li></ul><ul id="13c37bb1-483c-80e4-914e-f4b62e23fad2" class="bulleted-list"><li style="list-style-type:disc">Show the final predicted clean image, using iterative denoising</li></ul><ul id="13c37bb1-483c-80cd-8282-d185fdfa55f3" class="bulleted-list"><li style="list-style-type:disc">Show the predicted clean image using only a single denoising step, as was done in the previous part. This should look much worse.</li></ul><ul id="13c37bb1-483c-804b-a2df-de6dedc747d8" class="bulleted-list"><li style="list-style-type:disc">Show the predicted clean image using gaussian blurring, as was done in part 1.2.</li></ul><ul id="13c37bb1-483c-80b3-8911-df0c7448906e" class="bulleted-list"><li style="list-style-type:disc">Complete the <code>iterative_denoise</code> function</li></ul><p id="14437bb1-483c-800a-b7ec-e44b1609bfcc" class="">
+</p><p id="14737bb1-483c-80c0-9e41-ca5583a965ba" class="">In this section, rather than using the denoiser to jump directly from <code>t=T</code> to <code>t=0</code>, I implemented an <code>iterative_denoise</code> function to denoise the image in steps, and in this case starting with <code>T=990</code> and decreasing in a stride of 30. To calculate the image at a given time step, I used the following formula:</p><figure id="14737bb1-483c-80d2-a674-c3c5e97fb5af" class="equation"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable width="100%"><mtr><mtd width="50%"></mtd><mtd><mrow><msub><mi>x</mi><msup><mi>t</mi><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup></msub><mo>=</mo><mfrac><mrow><msqrt><msub><mover accent="true"><mi>α</mi><mo>ˉ</mo></mover><msup><mi>t</mi><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup></msub></msqrt><msub><mi>β</mi><mi>t</mi></msub></mrow><mrow><mn>1</mn><mo>−</mo><msub><mover accent="true"><mi>α</mi><mo>ˉ</mo></mover><mi>t</mi></msub></mrow></mfrac><msub><mi>x</mi><mn>0</mn></msub><mo>+</mo><mtext>    </mtext><mfrac><mrow><msqrt><msub><mi>α</mi><mi>t</mi></msub></msqrt><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><msub><mover accent="true"><mi>α</mi><mo>ˉ</mo></mover><msup><mi>t</mi><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup></msub><mo stretchy="false">)</mo></mrow><mrow><mn>1</mn><mo>−</mo><msub><mover accent="true"><mi>α</mi><mo>ˉ</mo></mover><mi>t</mi></msub></mrow></mfrac><msub><mi>x</mi><mi>t</mi></msub><mo>+</mo><mtext>    </mtext><msub><mi>v</mi><mi>σ</mi></msub></mrow></mtd><mtd width="50%"></mtd><mtd><mtext>(A.3)</mtext></mtd></mtr></mtable><annotation encoding="application/x-tex">x_{t&#x27;} = \frac{\sqrt{\bar\alpha_{t&#x27;}}\beta_t}{1 - \bar\alpha_t} x_0 +        \frac{\sqrt{\alpha_t}(1 - \bar\alpha_{t&#x27;})}{1 - \bar\alpha_t} x_t +        v_\sigma\tag{A.3}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.328em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight">t</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6828em;"><span style="top:-2.786em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.3069em;vertical-align:-0.836em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.4709em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord"><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.5678em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.2222em;"><span class="mord">ˉ</span></span></span></span></span></span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:-0.0037em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.7939em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;"><span class="mord"><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.5678em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.2222em;"><span class="mord">ˉ</span></span></span></span></span></span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.328em;"><span style="top:-2.55em;margin-left:-0.0037em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight">t</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6828em;"><span style="top:-2.786em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-2.7539em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg xmlns="http://www.w3.org/2000/svg" width='400em' height='1.08em' viewBox='0 0 400000 1080' preserveAspectRatio='xMinYMin slice'><path d='M95,702
+c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
+c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
+c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
+s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
+c69,-144,104.5,-217.7,106.5,-221
+l0 -0
+c5.3,-9.3,12,-14,20,-14
+H400000v40H845.2724
+s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
+c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
+M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2461em;"><span></span></span></span></span></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05278em;">β</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:-0.0528em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.836em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:2.2907em;vertical-align:-0.836em;"></span><span class="mord">    </span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.4547em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord"><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.5678em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.2222em;"><span class="mord">ˉ</span></span></span></span></span></span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:-0.0037em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.7047em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.7253em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;"><span class="mord"><span class="mord mathnormal" style="margin-right:0.0037em;">α</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:-0.0037em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-2.6853em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg xmlns="http://www.w3.org/2000/svg" width='400em' height='1.08em' viewBox='0 0 400000 1080' preserveAspectRatio='xMinYMin slice'><path d='M95,702
+c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
+c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
+c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
+s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
+c69,-144,104.5,-217.7,106.5,-221
+l0 -0
+c5.3,-9.3,12,-14,20,-14
+H400000v40H845.2724
+s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
+c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
+M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3147em;"><span></span></span></span></span></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord"><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.5678em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.2222em;"><span class="mord">ˉ</span></span></span></span></span></span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.328em;"><span style="top:-2.55em;margin-left:-0.0037em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight">t</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6828em;"><span style="top:-2.786em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.836em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord">    </span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">σ</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span><span class="tag"><span class="strut" style="height:2.3069em;vertical-align:-0.836em;"></span><span class="mord text"><span class="mord">(</span><span class="mord"><span class="mord">A.3</span></span><span class="mord">)</span></span></span></span></span></span></div></figure><p id="14737bb1-483c-8057-8376-c413a9d74f20" class="">Below is every 5th image in the sequence going from <code>990, 960, 930, ..., 30, 0</code>.</p><div id="14637bb1-483c-805d-8f2d-df12a54fd988" class="column-list"><div id="14637bb1-483c-80f6-9add-f6bbe61d7394" style="width:20%" class="column"><figure id="14637bb1-483c-80ac-92c0-fe237342f298" class="image"><a href="download%2010.png"><img style="width:192px" src="download%2010.png"/></a><figcaption>t=90</figcaption></figure></div><div id="14637bb1-483c-80dd-ab78-ed42ecca0cb5" style="width:20%" class="column"><figure id="14637bb1-483c-80ee-9008-d8474e84be02" class="image"><a href="download%2011.png"><img style="width:192px" src="download%2011.png"/></a><figcaption>t=240</figcaption></figure></div><div id="14637bb1-483c-80c2-9560-d87f05867137" style="width:20%" class="column"><figure id="14637bb1-483c-8002-9ee3-dbf984478a34" class="image"><a href="download%2012.png"><img style="width:240px" src="download%2012.png"/></a><figcaption>t=390</figcaption></figure></div><div id="14637bb1-483c-8074-8851-df0e37ca5cc0" style="width:20%" class="column"><figure id="14637bb1-483c-8007-8658-d988b65baa42" class="image"><a href="download%2013.png"><img style="width:336px" src="download%2013.png"/></a><figcaption>t=540</figcaption></figure></div><div id="14637bb1-483c-8061-bac9-f522bde67f1f" style="width:20%" class="column"><figure id="14637bb1-483c-80da-a46e-cb380786383c" class="image"><a href="download%2014.png"><img style="width:336px" src="download%2014.png"/></a><figcaption>t=690</figcaption></figure></div></div><p id="14737bb1-483c-8029-9366-d414a4b18496" class="">
+</p><p id="14637bb1-483c-80ee-ae41-dbe2e82c3722" class="">Below are the results as well as comparisons to the original image, single step denoising, and gaussian blurring.</p><div id="14637bb1-483c-80c8-9e18-e61b9e08b76c" class="column-list"><div id="14637bb1-483c-8024-b812-d45ec5318850" style="width:25%" class="column"><figure id="14637bb1-483c-8007-bebc-d20523c4ce6c" class="image"><a href="download%2015.png"><img style="width:528px" src="download%2015.png"/></a><figcaption>original</figcaption></figure></div><div id="14637bb1-483c-8007-be2e-cd0afdf07dba" style="width:25%" class="column"><figure id="14437bb1-483c-804a-ab86-e0fa7f333822" class="image"><a href="download%2016.png"><img style="width:432px" src="download%2016.png"/></a><figcaption>iterative</figcaption></figure></div><div id="14637bb1-483c-8086-a122-d7e15835bbce" style="width:25%" class="column"><figure id="14637bb1-483c-80fb-a355-e2aedc045c29" class="image"><a href="download%2017.png"><img style="width:336px" src="download%2017.png"/></a><figcaption>one step</figcaption></figure></div><div id="14637bb1-483c-803b-9a0c-cb3df5636ca9" style="width:25%" class="column"><figure id="14637bb1-483c-80ab-80b2-ce9033de06ac" class="image"><a href="download%2018.png"><img style="width:528px" src="download%2018.png"/></a><figcaption>gaussian blurring</figcaption></figure></div></div><p id="14637bb1-483c-807a-9485-e0ff11b03734" class="">
+</p><h3 id="14637bb1-483c-800a-90e0-d3ff6bdd8e31" class=""><strong>1.5 Diffusion Model Sampling</strong></h3><p id="14637bb1-483c-80a2-a321-d2792f8d36dc" class="">In this part we use the <code>iterative_denoise</code> function is to generate images from scratch by setting <code>i_start = 0</code> and passing in random noise.</p><p id="14737bb1-483c-80b5-aecd-dd0403f4b089" class="">
+</p><p id="14737bb1-483c-804a-be32-f4970dff5fe3" class="">Below are 5 results using the prompt embedding for <code>&quot;a high quality photo&quot;</code>:</p><div id="14637bb1-483c-8060-b311-d67864e63416" class="column-list"><div id="14637bb1-483c-8097-a786-d82cdd189928" style="width:20%" class="column"><figure id="14637bb1-483c-809e-9132-eda29fe41521" class="image"><a href="download%2019.png"><img style="width:624px" src="download%2019.png"/></a></figure></div><div id="14637bb1-483c-8032-8ef1-ff32e1046a3f" style="width:20%" class="column"><figure id="14637bb1-483c-8073-a842-e03991a88841" class="image"><a href="download%2020.png"><img style="width:288px" src="download%2020.png"/></a></figure></div><div id="14637bb1-483c-804f-969a-d5d05d560d96" style="width:20%" class="column"><figure id="14637bb1-483c-80c2-b28b-db8c58f47fec" class="image"><a href="download%2021.png"><img style="width:192px" src="download%2021.png"/></a></figure></div><div id="14637bb1-483c-80dd-a4a1-e4fa389b3381" style="width:20%" class="column"><figure id="14637bb1-483c-8026-bc32-c4ed52898f19" class="image"><a href="download%2022.png"><img style="width:132px" src="download%2022.png"/></a></figure></div><div id="14637bb1-483c-8009-9209-f5cc54e8450f" style="width:20%" class="column"><figure id="14637bb1-483c-80bc-9100-d065a8129ee1" class="image"><a href="download%2023.png"><img style="width:384px" src="download%2023.png"/></a></figure></div></div><h3 id="14637bb1-483c-80a1-b1be-d359157cf231" class=""><strong>1.6 Classifier-Free Guidance (CFG)</strong></h3><ul id="14637bb1-483c-80dd-98b0-d95cc2ecfaa2" class="bulleted-list"><li style="list-style-type:disc">Implement the <code>iterative_denoise_cfg</code> function</li></ul><ul id="14637bb1-483c-8016-8aba-e434e868466a" class="bulleted-list"><li style="list-style-type:disc">Show 5 images of <code>&quot;a high quality photo&quot;</code> with a CFG scale of .<p id="14637bb1-483c-8005-8c87-f252f99793d7" class="">γ=7</p></li></ul><p id="14737bb1-483c-8075-be98-dc9eb45ce353" class="">The results from the previous part were reasonable but still not spectacular. In this part we improve our results using CFG, which uses conditional and unconditional noise estimates:</p><figure id="14737bb1-483c-80a9-832d-eeebac1b8595" class="equation"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable width="100%"><mtr><mtd width="50%"></mtd><mtd><mrow><mi>ϵ</mi><mo>=</mo><msub><mi>ϵ</mi><mi>u</mi></msub><mo>+</mo><mi>γ</mi><mtext>    </mtext><mo stretchy="false">(</mo><msub><mi>ϵ</mi><mi>c</mi></msub><mo>−</mo><msub><mi>ϵ</mi><mi>u</mi></msub><mo stretchy="false">)</mo></mrow></mtd><mtd width="50%"></mtd><mtd><mtext>(A.4)</mtext></mtd></mtr></mtable><annotation encoding="application/x-tex">\epsilon = \epsilon_u + \gamma        (\epsilon_c - \epsilon_u) \tag{A.4}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">ϵ</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">ϵ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">u</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05556em;">γ</span><span class="mord">    </span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">ϵ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">c</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal">ϵ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">u</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span><span class="tag"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">(</span><span class="mord"><span class="mord">A.4</span></span><span class="mord">)</span></span></span></span></span></span></div></figure><p id="14737bb1-483c-80e4-8cf3-ce7262010cf6" class="">To get the unconditional noise estimates, we simply pass in a null prompt embedding for <code>&quot;&quot;</code> to the unet.</p><p id="14737bb1-483c-8011-a994-eb69f8d25eea" class="">
+</p><p id="14737bb1-483c-80aa-82d2-d08453d26e90" class="">Below are 5 images with a CFG scale of <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>γ</mi><mo>=</mo><mn>7</mn></mrow><annotation encoding="application/x-tex">\gamma=7</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.05556em;">γ</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">7</span></span></span></span></span><span>﻿</span></span> with the prompt embedding <code>&quot;a high quality photo&quot;</code></p><div id="14637bb1-483c-80f2-9d0b-ccaa797c6e9c" class="column-list"><div id="14637bb1-483c-8034-a4f6-f637f9cd9f0f" style="width:20%" class="column"><figure id="14637bb1-483c-809a-aee5-e538072d4aba" class="image"><a href="download%2024.png"><img style="width:192px" src="download%2024.png"/></a></figure></div><div id="14637bb1-483c-80a5-b09b-ce721b87c678" style="width:20%" class="column"><figure id="14637bb1-483c-8070-a0b2-fb285d4d2876" class="image"><a href="download%2025.png"><img style="width:288px" src="download%2025.png"/></a></figure></div><div id="14637bb1-483c-8058-b44f-e6e84084bbb9" style="width:20%" class="column"><figure id="14637bb1-483c-8069-a675-d43372ea7484" class="image"><a href="download%2026.png"><img style="width:288px" src="download%2026.png"/></a></figure></div><div id="14637bb1-483c-80b7-9c2d-d9673a848b88" style="width:20%" class="column"><figure id="14637bb1-483c-8074-8f90-cd6cce3ba202" class="image"><a href="download%2027.png"><img style="width:288px" src="download%2027.png"/></a></figure></div><div id="14637bb1-483c-805b-be19-dadd1eb3a0bd" style="width:20%" class="column"><figure id="14637bb1-483c-80a5-b23d-c600874bbd36" class="image"><a href="download%2028.png"><img style="width:288px" src="download%2028.png"/></a></figure></div></div><p id="14637bb1-483c-80ea-a39c-cea95b805678" class="">
+</p><p id="14637bb1-483c-80ce-806f-f05419204056" class="">
+</p><h3 id="14637bb1-483c-80f9-a7c3-fa8fc5436642" class=""><strong>1.7 Image-to-image Translatione</strong></h3><p id="14637bb1-483c-8091-b6ea-e59f6173b93a" class="">Below are some results using SDEdit with CFG to make edits to existing images which works by adding noise to some image at some midway point in the iteration loop from CFG, and denoising starting at that midway point. Below, are the original images, as well as the results from starting at <code>i_start=[1, 3, 5, 7, 10, 20]</code> in the iteration loop with the text prompt <code>&quot;a high quality photo&quot;</code>.</p><figure id="14637bb1-483c-8057-b8ed-d80af26f4dde" class="image"><a href="download%2015.png"><img style="width:240px" src="download%2015.png"/></a><figcaption>original campanille</figcaption></figure><figure id="14637bb1-483c-8029-9de0-e0ad62144d83" class="image"><a href="image%204.png"><img style="width:596px" src="image%204.png"/></a></figure><p id="14637bb1-483c-8068-b1a0-d3e49516dbac" class="">
+</p><figure id="14637bb1-483c-808e-acbc-eacef89fcd7f" class="image"><a href="creeper.jpg"><img style="width:192px" src="creeper.jpg"/></a><figcaption>image of a creeper</figcaption></figure><figure id="14637bb1-483c-8092-aff6-e7c36b6e363e" class="image"><a href="image%205.png"><img style="width:707.9896240234375px" src="image%205.png"/></a></figure><p id="14637bb1-483c-805e-9dd5-f796c48ca25c" class="">
+</p><figure id="14637bb1-483c-8028-b26c-e4b64955ab9b" class="image"><a href="cconsole.jpg"><img style="width:240px" src="cconsole.jpg"/></a><figcaption>image of the chroma console</figcaption></figure><figure id="14637bb1-483c-80c0-a774-fb0c359b6292" class="image"><a href="image%206.png"><img style="width:707.9896240234375px" src="image%206.png"/></a></figure><p id="14737bb1-483c-80e6-bab6-e7d85d5b059e" class="">
+</p><h3 id="14637bb1-483c-80e7-b1f3-d1f2db73ff69" class=""><strong>1.7.1 Editing Hand-Drawn and Web Images</strong></h3><p id="14637bb1-483c-806b-90ea-e7aac6745030" class="">Here, I used a very similar procedure as the above, and I applied it to web images as well as hand drawn images.</p><figure id="14637bb1-483c-8033-b088-f5749bfe8d38" class="image"><a href="download%2029.png"><img style="width:288px" src="download%2029.png"/></a><figcaption>web image of a pedal board</figcaption></figure><figure id="14637bb1-483c-809f-a421-c9e81c0938fa" class="image"><a href="image%207.png"><img style="width:707.9791870117188px" src="image%207.png"/></a></figure><p id="14637bb1-483c-80b5-b5bb-f59e2d9bdff3" class="">
+</p><figure id="14637bb1-483c-808c-be02-cf864b1b3796" class="image"><a href="download%2030.png"><img style="width:288px" src="download%2030.png"/></a><figcaption>hand drawn image of a robot face.</figcaption></figure><figure id="14637bb1-483c-80ed-8b1c-e914ce01103e" class="image"><a href="image%208.png"><img style="width:707.9896240234375px" src="image%208.png"/></a></figure><figure id="14637bb1-483c-80f5-86f5-ec70fd44aeb1" class="image"><a href="download%2031.png"><img style="width:288px" src="download%2031.png"/></a><figcaption>hand drawn image of a burger</figcaption></figure><figure id="14637bb1-483c-808c-a0c1-c9eed93c3c88" class="image"><a href="image%209.png"><img style="width:596px" src="image%209.png"/></a></figure><p id="14637bb1-483c-8078-b897-cee2731f8b92" class="">
+</p><p id="14637bb1-483c-801b-b1c5-e2ba54aeb371" class="">
+</p><h3 id="14637bb1-483c-8031-a1fe-ebf023905eab" class=""><strong>1.7.2 Inpainting</strong></h3><p id="14737bb1-483c-8083-a90e-fe3c693b80fd" class="">In this section I implemented inpainting, where I essentially used stable diffusion to change the section of the image defined by a mask. This involved modifying the CFG loop so that in each iteration step, in the current image <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mi>t</mi></msub></mrow><annotation encoding="application/x-tex">x_t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span>, we replace the sections outside of the mask with the original image and keep the diffusion model’s input inside of the mask as such:</p><figure id="14737bb1-483c-8047-89cb-cd46e2c480ce" class="equation"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable width="100%"><mtr><mtd width="50%"></mtd><mtd><mrow><msub><mi>x</mi><mi>t</mi></msub><mo>←</mo><mtext mathvariant="bold">m</mtext><msub><mi>x</mi><mi>t</mi></msub><mo>+</mo><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><mtext mathvariant="bold">m</mtext><mo stretchy="false">)</mo><mtext>    forward</mtext><mo stretchy="false">(</mo><msub><mi>x</mi><mrow><mi>o</mi><mi>r</mi><mi>i</mi><mi>g</mi></mrow></msub><mo separator="true">,</mo><mi>t</mi><mo stretchy="false">)</mo></mrow></mtd><mtd width="50%"></mtd><mtd><mtext>(A.5)</mtext></mtd></mtr></mtable><annotation encoding="application/x-tex">x_t \leftarrow \textbf{m} x_t + (1 - \textbf{m})        \text{forward}(x_{orig}, t) \tag{A.5}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">←</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7333em;vertical-align:-0.15em;"></span><span class="mord text"><span class="mord textbf">m</span></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.0361em;vertical-align:-0.2861em;"></span><span class="mord text"><span class="mord textbf">m</span></span><span class="mclose">)</span><span class="mord">    </span><span class="mord text"><span class="mord">forward</span></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">or</span><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight" style="margin-right:0.03588em;">g</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">t</span><span class="mclose">)</span></span><span class="tag"><span class="strut" style="height:1.0361em;vertical-align:-0.2861em;"></span><span class="mord text"><span class="mord">(</span><span class="mord"><span class="mord">A.5</span></span><span class="mord">)</span></span></span></span></span></span></div></figure><p id="14637bb1-483c-800c-beb5-f838a5d872d5" class="">Below are some results of editing some images with the corresponding masks.</p><div id="14737bb1-483c-80fc-8218-cb9a79495467" class="column-list"><div id="14737bb1-483c-807a-90fd-df45c7fa6b17" style="width:33.333333333333336%" class="column"><p id="14637bb1-483c-80bc-8531-f11710a047cd" class=""><strong>Original:</strong></p><figure id="14737bb1-483c-809d-b150-e21833596e90" class="image"><a href="download%2032.png"><img style="width:288px" src="download%2032.png"/></a></figure><figure id="14737bb1-483c-8059-84f8-c801c1c29d07" class="image"><a href="download%2033.png"><img style="width:288px" src="download%2033.png"/></a></figure><figure id="14737bb1-483c-807c-bbdb-f1e7041c6ec3" class="image"><a href="download%2034.png"><img style="width:336px" src="download%2034.png"/></a></figure><figure id="14737bb1-483c-8030-b9af-ca9348ba961f" class="image"><a href="download%2035.png"><img style="width:240px" src="download%2035.png"/></a></figure><figure id="14737bb1-483c-80a4-86c9-d464f72f45f1" class="image"><a href="download%2036.png"><img style="width:336px" src="download%2036.png"/></a></figure></div><div id="14737bb1-483c-8040-bbb9-e2219869263d" style="width:33.333333333333336%" class="column"><p id="14737bb1-483c-8062-9749-e99cda1abdf9" class=""><strong>Mask:</strong></p><figure id="14737bb1-483c-8062-9cd5-f6e8997945a7" class="image"><a href="download%2037.png"><img style="width:384px" src="download%2037.png"/></a></figure><figure id="14737bb1-483c-804e-949d-e8795c4c3d8c" class="image"><a href="download%2038.png"><img style="width:432px" src="download%2038.png"/></a></figure><figure id="14737bb1-483c-80c6-8be0-db28ff400d8d" class="image"><a href="download%2039.png"><img style="width:528px" src="download%2039.png"/></a></figure><figure id="14737bb1-483c-8041-8dc4-f206f1f1fa89" class="image"><a href="download%2040.png"><img style="width:384px" src="download%2040.png"/></a></figure><figure id="14737bb1-483c-8064-a133-c3d79592c7d3" class="image"><a href="download%2041.png"><img style="width:528px" src="download%2041.png"/></a></figure></div><div id="14737bb1-483c-8072-a1dd-f750abc69dfd" style="width:33.33333333333333%" class="column"><p id="14737bb1-483c-806e-915b-fafa4f3fca29" class=""><strong>Result:</strong></p><figure id="14737bb1-483c-80ae-9ff7-e37848677650" class="image"><a href="download%2042.png"><img style="width:384px" src="download%2042.png"/></a></figure><figure id="14737bb1-483c-8080-a8e8-dcf5d29ae9c8" class="image"><a href="download%2043.png"><img style="width:576px" src="download%2043.png"/></a></figure><figure id="14737bb1-483c-8089-970d-d7a09849e96b" class="image"><a href="download%2044.png"><img style="width:576px" src="download%2044.png"/></a></figure><figure id="14737bb1-483c-8020-806b-d01b169ad8c6" class="image"><a href="download%2045.png"><img style="width:480px" src="download%2045.png"/></a></figure><figure id="14737bb1-483c-8071-a0f3-d2f088f6f62a" class="image"><a href="download%2046.png"><img style="width:480px" src="download%2046.png"/></a></figure></div></div><p id="14637bb1-483c-8015-9b63-d0b984071de8" class="">
+</p><h3 id="14637bb1-483c-8001-8d80-c79cb06e7132" class="">1.7.3 <strong>Text-Conditional Image-to-image Translation</strong></h3><p id="14637bb1-483c-80f1-97ee-d84805d7d208" class="">In this section, I used a similar procedure as SDEdit, but uses a different prompt embedding than <code>&quot;a high quality photo&quot;</code>. Instead, I used <code>&quot;a rocket ship&quot;</code> which guided our model to generate images that resembled a rocket ship. Below are some results using 3 different images.</p><p id="14637bb1-483c-80b7-a318-f91b3da17eb4" class="">
+</p><figure id="14737bb1-483c-800c-8b23-dc869aced9aa" class="image"><a href="image%2010.png"><img style="width:707.9896240234375px" src="image%2010.png"/></a></figure><figure id="14737bb1-483c-80a6-9685-c5efdea33da5" class="image"><a href="image%2011.png"><img style="width:707.9479370117188px" src="image%2011.png"/></a></figure><figure id="14737bb1-483c-8065-801e-c002db88150b" class="image"><a href="image%2012.png"><img style="width:672px" src="image%2012.png"/></a></figure><p id="14637bb1-483c-806e-8ac9-cbba2bbdd1de" class="">
+</p><p id="14637bb1-483c-8011-a6b5-d6d713668b79" class="">
+</p><p id="14637bb1-483c-8018-bec0-e296cdcccfe5" class="">1.8 <strong>Visual Anagrams</strong></p><p id="14737bb1-483c-8079-8762-d3bbce39d82a" class="">A visual anagram is an image that looks like one subject normally, but looks like another subject when rearranged (in this case flipped vertically). In this case, the images are constructed by calculating the noise as so and then using that noise in the original CFG method:</p><figure id="14737bb1-483c-808d-b262-ebd420e049d7" class="equation"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>ϵ</mi><mn>1</mn></msub><mo>=</mo><mtext>UNet</mtext><mo stretchy="false">(</mo><msub><mi>x</mi><mi>t</mi></msub><mo separator="true">,</mo><mi>t</mi><mo separator="true">,</mo><msub><mi>p</mi><mn>1</mn></msub><mo stretchy="false">)</mo><mspace linebreak="newline"></mspace><msub><mi>ϵ</mi><mn>2</mn></msub><mo>=</mo><mtext>flip</mtext><mo stretchy="false">(</mo><mtext>UNet</mtext><mo stretchy="false">(</mo><mtext>flip</mtext><mo stretchy="false">(</mo><msub><mi>x</mi><mi>t</mi></msub><mo stretchy="false">)</mo><mo separator="true">,</mo><mi>t</mi><mo separator="true">,</mo><msub><mi>p</mi><mn>2</mn></msub><mo stretchy="false">)</mo><mo stretchy="false">)</mo><mspace linebreak="newline"></mspace><mi>ϵ</mi><mo>=</mo><mo stretchy="false">(</mo><msub><mi>ϵ</mi><mn>1</mn></msub><mo>+</mo><msub><mi>ϵ</mi><mn>2</mn></msub><mo stretchy="false">)</mo><mi mathvariant="normal">/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">\epsilon_1 = \text{UNet}(x_t, t, p_1)
+\\
+\epsilon_2 = \text{flip}(\text{UNet}(\text{flip}(x_t), t, p_2))
+\\
+\epsilon = (\epsilon_1 + \epsilon_2) / 2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">ϵ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">UNet</span></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">t</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">ϵ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">flip</span></span><span class="mopen">(</span><span class="mord text"><span class="mord">UNet</span></span><span class="mopen">(</span><span class="mord text"><span class="mord">flip</span></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">t</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">))</span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">ϵ</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">ϵ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal">ϵ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mord">/2</span></span></span></span></span></div></figure><p id="14737bb1-483c-8069-a77e-f81985d79619" class="">Below are some results using the corresponding pairs of prompt embeddings. </p><p id="14737bb1-483c-80e3-a267-e138d18458e3" class="">
+</p><p id="14737bb1-483c-80bb-8d43-c2db03c48c05" class="">Anagram for <code>(&quot;an oil painting of an old man&quot; , &quot;an oil painting of people around a campfire&quot;)</code></p><div id="14737bb1-483c-8068-be25-c65f77e762d5" class="column-list"><div id="14737bb1-483c-80ab-957d-eb955f8f44d1" style="width:50%" class="column"><figure id="14737bb1-483c-80b6-8fb8-fc718e7af809" class="image"><a href="download%2047.png"><img style="width:384px" src="download%2047.png"/></a></figure><figure id="14737bb1-483c-8051-b575-d39cf1077ae6" class="image"><a href="champfire.png"><img style="width:432px" src="champfire.png"/></a></figure><p id="14737bb1-483c-80f1-ad38-cccb5a4a3b2c" class="">
+</p></div><div id="14737bb1-483c-80b1-b899-de5f44153d7b" style="width:50%" class="column"><figure id="14737bb1-483c-8020-9e4a-ec35ca7424ea" class="image"><a href="camp_fire.jpg"><img style="width:336px" src="camp_fire.jpg"/></a></figure><figure id="14737bb1-483c-8055-b4e4-dc7325116e58" class="image"><a href="champfire%201.png"><img style="width:576px" src="champfire%201.png"/></a></figure><p id="14737bb1-483c-805b-a208-dc0c5ef1f547" class="">
+</p></div></div><p id="14737bb1-483c-80c6-95ca-e2f147616d58" class="">Anagram for <code>(&quot;a photo of a hipster barista&quot;,&quot;a lithograph of a skull&quot;)</code></p><div id="14737bb1-483c-80e8-81ea-d6fd3972e3db" class="column-list"><div id="14737bb1-483c-809a-a692-d2d1f182faa6" style="width:50%" class="column"><figure id="14737bb1-483c-8075-92d5-f2e939fae395" class="image"><a href="download%2048.png"><img style="width:480px" src="download%2048.png"/></a></figure></div><div id="14737bb1-483c-808e-88d4-c791e7ca7fa0" style="width:50%" class="column"><figure id="14737bb1-483c-801c-991f-dd31024578d7" class="image"><a href="barista.jpg"><img style="width:576px" src="barista.jpg"/></a></figure></div></div><p id="14737bb1-483c-80da-a545-c66db4459cd8" class="">Anagram for <code>(&quot;a photo of the amalfi cost&quot;,&quot;a photo of a dog&quot;)</code></p><div id="14737bb1-483c-8095-b2dd-c4f0c18ef182" class="column-list"><div id="14737bb1-483c-80aa-8c89-e89bd6dd34cf" style="width:50%" class="column"><figure id="14737bb1-483c-80e7-9e34-d2a5b2b3b8d5" class="image"><a href="download%2049.png"><img style="width:480px" src="download%2049.png"/></a></figure></div><div id="14737bb1-483c-80cc-a11c-c10f63c3edf5" style="width:50%" class="column"><figure id="14737bb1-483c-802d-91c1-ed20cf42a555" class="image"><a href="dog.jpg"><img style="width:672px" src="dog.jpg"/></a></figure></div></div><p id="14737bb1-483c-80fb-bf3c-f58fdd102de8" class="">
+</p><p id="14737bb1-483c-80cd-a5c1-fcc33ceb7dbe" class="">
+</p><p id="14737bb1-483c-8035-9237-cbbcba0c2f29" class="">1.9 <strong>Hybrid Images</strong></p><p id="14737bb1-483c-8044-9c83-e89a65cef3aa" class="">A hybrid image is an image that appears as one subject upclose, and another far away. These images are constructed in a similar manner as the visual anagrams, but intead, we take the noise from two prompt embeddings, and apply a low and high pass filter to them using a guassian blur. We then calculate the noise as such:</p><figure id="14737bb1-483c-80d4-ac14-ea75c9260de9" class="equation"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>ϵ</mi><mn>1</mn></msub><mo>=</mo><mtext>UNet</mtext><mo stretchy="false">(</mo><msub><mi>x</mi><mi>t</mi></msub><mo separator="true">,</mo><mi>t</mi><mo separator="true">,</mo><msub><mi>p</mi><mn>1</mn></msub><mo stretchy="false">)</mo><mspace linebreak="newline"></mspace><msub><mi>ϵ</mi><mn>2</mn></msub><mo>=</mo><mtext>UNet</mtext><mo stretchy="false">(</mo><msub><mi>x</mi><mi>t</mi></msub><mo separator="true">,</mo><mi>t</mi><mo separator="true">,</mo><msub><mi>p</mi><mn>2</mn></msub><mo stretchy="false">)</mo><mspace linebreak="newline"></mspace><mi>ϵ</mi><mo>=</mo><msub><mi>f</mi><mtext>lowpass</mtext></msub><mo stretchy="false">(</mo><msub><mi>ϵ</mi><mn>1</mn></msub><mo stretchy="false">)</mo><mo>+</mo><msub><mi>f</mi><mtext>highpass</mtext></msub><mo stretchy="false">(</mo><msub><mi>ϵ</mi><mn>2</mn></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\epsilon_1 = \text{UNet}(x_t, t, p_1)
+\\
+\epsilon_2 = \text{UNet}(x_t, t, p_2)
+\\
+\epsilon = f_\text{lowpass}(\epsilon_1) + f_\text{highpass}(\epsilon_2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">ϵ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">UNet</span></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">t</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">ϵ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">UNet</span></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">t</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">ϵ</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.0361em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.1076em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord text mtight"><span class="mord mtight">lowpass</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">ϵ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.0361em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.1076em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord text mtight"><span class="mord mtight">highpass</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">ϵ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></span></div></figure><p id="14737bb1-483c-8065-b43b-dd29134c2fd7" class="">Below are some results using the corresponding pairs of prompt embeddings. </p><p id="14737bb1-483c-805a-bb36-c7cdea7cf79e" class="">
+</p><p id="14637bb1-483c-8031-b9aa-de8e4830b839" class="">Hybrid image for <code>(&quot;a lithograph of a skull&quot;, &quot;a lithograph of waterfalls&quot;)</code></p><div id="14737bb1-483c-8006-8c99-c6c258a29846" class="column-list"><div id="14737bb1-483c-80ad-8d66-c95bffbe1e2a" style="width:56.25%" class="column"><figure id="14737bb1-483c-8046-9bb5-f4a35174d2ef" class="image"><a href="download%2050.png"><img style="width:480px" src="download%2050.png"/></a></figure></div><div id="14737bb1-483c-80fd-8bfc-c664a3076bdf" style="width:43.75%" class="column"><figure id="14737bb1-483c-8052-9bb5-e90702d3537f" class="image"><a href="download%2050.png"><img style="width:84px" src="download%2050.png"/></a></figure><p id="14737bb1-483c-8034-a245-c6e63f207dd1" class="">
+</p></div></div><p id="14737bb1-483c-8091-8bf7-ebb09de46527" class="">Hybrid image for <code>(&quot;a rocket ship&quot;, &quot;an oil painting of an old man&quot;)</code></p><div id="14737bb1-483c-805a-927f-c3582115245d" class="column-list"><div id="14737bb1-483c-8060-93d8-e527f73445ad" style="width:56.25%" class="column"><figure id="14737bb1-483c-80d1-bccd-c5272e4c4c5c" class="image"><a href="image%2013.png"><img style="width:528px" src="image%2013.png"/></a></figure></div><div id="14737bb1-483c-80d6-a194-d4dee2ca05b6" style="width:43.74999999999999%" class="column"><figure id="14737bb1-483c-800a-ac6c-dc882974c118" class="image"><a href="image%2013.png"><img style="width:84px" src="image%2013.png"/></a></figure><p id="14737bb1-483c-80ab-a2fe-de528ef573b6" class="">
+</p></div></div><p id="14737bb1-483c-80e7-a758-e8de72c05a24" class="">Hybrid image for <code>(&quot;a pencil&quot; , &quot;a rocket ship&quot;)</code></p><div id="14737bb1-483c-8049-9b59-d4fccaa4b3d2" class="column-list"><div id="14737bb1-483c-801c-9993-cdb5dd847441" style="width:56.25%" class="column"><figure id="14737bb1-483c-8061-8ff4-c86ceb316803" class="image"><a href="download%2051.png"><img style="width:384px" src="download%2051.png"/></a></figure></div><div id="14737bb1-483c-8001-9595-e128f604cedd" style="width:43.74999999999999%" class="column"><figure id="14737bb1-483c-80fe-b1e4-da7ce267ff6f" class="image"><a href="download%2051.png"><img style="width:84px" src="download%2051.png"/></a></figure><p id="14737bb1-483c-80cb-82ea-dffab1a6e54f" class="">
+</p></div></div><p id="14737bb1-483c-80c1-b157-dbc4b89bc7ee" class="">Other results:</p><div id="14737bb1-483c-8066-a587-c43e8a62d90c" class="column-list"><div id="14737bb1-483c-80a2-a431-e0f3116aafe3" style="width:33.33333333333333%" class="column"><figure id="14737bb1-483c-800a-b813-c47567034b00" class="image"><a href="download%2052.png"><img style="width:336px" src="download%2052.png"/></a></figure></div><div id="14737bb1-483c-80a4-a1a1-cbcddfebbb18" style="width:33.333333333333336%" class="column"><figure id="14737bb1-483c-8090-8eb8-dd522e1b8166" class="image"><a href="download%2053.png"><img style="width:336px" src="download%2053.png"/></a></figure></div><div id="14737bb1-483c-80be-9a91-de5b57f34112" style="width:33.333333333333336%" class="column"><figure id="14737bb1-483c-80b4-b161-f13a728a7eaf" class="image"><a href="download%2054.png"><img style="width:336px" src="download%2054.png"/></a></figure></div></div><p id="14737bb1-483c-800d-a014-cc9e6c02b525" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
