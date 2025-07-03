@@ -23,7 +23,8 @@
   /* outline: 1px solid rgba(0, 0, 0, 0.3); */
   color: var(--main-color);
   font-size: var(--med);
-  font-family: "Courier New", Courier, monospace;
+  /* font-family: "Courier New", Courier, monospace; */
+  font-family: Adelle, Roboto Slab, DejaVu Serif, Georgia, Times New Roman, sans-serif;
   /* font-family: 'Source Sans Pro', sans-serif; */
 }
 
