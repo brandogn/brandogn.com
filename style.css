@@ -33,6 +33,10 @@ html {
   overflow-y: overlay;
 }
 
+ul {
+  padding-left: 40px;
+}
+
 /* ===== structure ===== */
 
 main {
